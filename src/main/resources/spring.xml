@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="bizlog" class="com.demo.bizlog.core.BizlogImpl">
+        <property name="loggers">
+            <list>
+                <bean class="com.demo.bizlog.logger.AsyncLogger">
+                    <property name="baseAsyncLog"><bean class="com.demo.bizlog.logger.AsyncLogImpl1"/></property>
+                </bean>
+                <bean class="com.demo.bizlog.logger.AsyncLogger">
+                    <property name="baseAsyncLog"><bean class="com.demo.bizlog.logger.AsyncLogImpl2"/></property>
+                </bean>
+                <bean class="com.demo.bizlog.logger.AsyncLogger">
+                    <property name="baseAsyncLog"><bean class="com.demo.bizlog.logger.AsyncLogImpl3"/></property>
+                </bean>
+                <bean class="com.demo.bizlog.logger.Log4jLogger"/>
+            </list>
+        </property>
+    </bean>
+</beans>
